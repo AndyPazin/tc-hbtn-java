@@ -33,9 +33,7 @@ public class PersonagemGame {
         public void setNome(String nome) {
                 if (nome != null && !nome.isEmpty()) { // Verifica se nome não é nulo e nem vazio
                         this.nome = nome;
-                } else {
-                        System.out.println("Nome inválido. Mantendo o nome anterior: " + this.nome);
-                }
+                } 
         }
 
         public String getStatus() {
