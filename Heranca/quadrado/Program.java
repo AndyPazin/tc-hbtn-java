@@ -27,5 +27,6 @@ public class Program {
         System.out.printf("Lado: %.2f\n", quadrado.getLado());
         System.out.printf("Area: %.2f\n", quadrado.area());
         System.out.printf(quadrado.toString() + "\n");
+
     }
 }
