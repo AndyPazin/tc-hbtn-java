@@ -55,11 +55,11 @@ public class Pedido {
                     totalItem);
         }
 
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------");
         System.out.printf("DESCONTO: %.2f%n", totalProdutos * (percentualDesconto/100)); // Usando printf
         System.out.printf("TOTAL PRODUTOS: %.2f%n", totalProdutos); // Usando printf
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------");
         System.out.printf("TOTAL PEDIDO: %.2f%n", calcularTotal()); // Usando printf
-        System.out.println("---------------------------");
+        System.out.println("-----------------------------");
     }
 }
