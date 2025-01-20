@@ -39,8 +39,6 @@ public class Pedido {
     }
 
     public void apresentarResumoPedido() {
-        DecimalFormat df = new DecimalFormat("#,##0.00"); // Formatação para duas casas decimais
-
         System.out.println("------- RESUMO PEDIDO -------");
 
         double totalProdutos = 0;
@@ -49,18 +47,19 @@ public class Pedido {
             double totalItem = item.getQuantidade() * produto.obterPrecoLiquido();
             totalProdutos += totalItem;
 
-            System.out.println("Tipo: " + produto.getClass().getSimpleName() + // Obtém o nome da classe do produto
-                    "  Titulo: " + produto.getTitulo() +
-                    "  Preco: " + df.format(produto.obterPrecoLiquido()) +
-                    "  Quant: " + item.getQuantidade() +
-                    "  Total: " + df.format(totalItem));
+            System.out.printf("Tipo: %s  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f%n", // Usando printf
+                    produto.getClass().getSimpleName(),
+                    produto.getTitulo(),
+                    produto.obterPrecoLiquido(),
+                    item.getQuantidade(),
+                    totalItem);
         }
 
         System.out.println("----------------------------");
-        System.out.println("DESCONTO: " + df.format(totalProdutos * (percentualDesconto/100)));
-        System.out.println("TOTAL PRODUTOS: " + df.format(totalProdutos));
+        System.out.printf("DESCONTO: %.2f%n", totalProdutos * (percentualDesconto/100)); // Usando printf
+        System.out.printf("TOTAL PRODUTOS: %.2f%n", totalProdutos); // Usando printf
         System.out.println("----------------------------");
-        System.out.println("TOTAL PEDIDO: " + df.format(calcularTotal()));
+        System.out.printf("TOTAL PEDIDO: %.2f%n", calcularTotal()); // Usando printf
         System.out.println("---------------------------");
     }
 }
