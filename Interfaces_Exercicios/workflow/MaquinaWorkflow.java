@@ -1,5 +1,4 @@
-import atividade.Atividade;
-import p2575.CanalNotificacao;
+import atividades.Atividade;
 
 public class MaquinaWorkflow {
 
