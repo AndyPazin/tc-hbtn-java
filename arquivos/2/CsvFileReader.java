@@ -8,27 +8,25 @@ public class CsvFileReader {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
-            boolean firstLine = true; // Flag para ignorar o cabeçalho, se existir
-
-            //System.out.println("Conteúdo do arquivo '" + fileName + "':\n");
+        //    boolean firstLine = true; // Flag para ignorar o cabeçalho, se existir
 
             while ((line = reader.readLine()) != null) {
-                if (firstLine) {
-                    firstLine = false; // Ignora a primeira linha (cabeçalho)
-                    continue; // Vai para a próxima iteração do loop
-                }
+//                if (firstLine) {
+//                    firstLine = false; // Ignora a primeira linha (cabeçalho)
+//                    continue; // Vai para a próxima iteração do loop
+//                }
 
                 String[] data = line.split(","); // Divide a linha em partes usando a vírgula como delimitador
 
                 if (data.length == 4) { // Verifica se há 4 colunas (Nome, Idade, Departamento, Salário)
                     String nome = data[0].trim(); // Remove espaços em branco extras
-                    String idadeStr = data[1].trim();
+                    String idade = data[1].trim();
                     String departamento = data[2].trim();
-                    String salarioStr = data[3].trim();
+                    String salario = data[3].trim();
 
                     try {
-                        int idade = Integer.parseInt(idadeStr);
-                        int salario = Integer.parseInt(salarioStr);
+//                        int idade = Integer.parseInt(idadeStr);
+//                        int salario = Integer.parseInt(salarioStr);
 
                         System.out.println("Funcionário: " + nome);
                         System.out.println("Idade: " + idade);
@@ -45,7 +43,7 @@ public class CsvFileReader {
                 }
             }
 
-            System.out.println("\nLeitura do arquivo concluída.");
+            System.out.println("Leitura do arquivo concluída.");
 
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
