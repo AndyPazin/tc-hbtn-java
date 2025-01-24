@@ -28,7 +28,7 @@ public class CsvFileReader {
 
                     try {
                         int idade = Integer.parseInt(idadeStr);
-                        double salario = Double.parseDouble(salarioStr);
+                        int salario = Integer.parseInt(salarioStr);
 
                         System.out.println("Funcionário: " + nome);
                         System.out.println("Idade: " + idade);
