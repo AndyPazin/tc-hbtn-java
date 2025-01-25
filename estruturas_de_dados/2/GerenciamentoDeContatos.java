@@ -15,15 +15,9 @@ public class GerenciamentoDeContatos {
             novoContato.adicionarTelefone(telefone);
             novoContato.adicionarEmail(email);
             contatos.put(nome, novoContato);
-            System.out.println("Contato " + nome + " adicionado.");
+            System.out.println("Contato " + nome + " adicionado com sucesso!");
         } else {
-            System.out.println("Contato com o nome " + nome + " já existe. Adicionando telefone e email.");
-            Contato contatoExistente = contatos.get(nome);
-            contatoExistente.adicionarTelefone(telefone);
-            if (!contatoExistente.adicionarEmail(email)){
-                System.out.println("Email duplicado não adicionado");
-            }
-
+            System.out.println("Erro: Contato com nome " + nome + " já existe!");
         }
     }
 
@@ -41,8 +35,7 @@ public class GerenciamentoDeContatos {
 
     public void buscarContato(String nome) {
         if (contatos.containsKey(nome)) {
-            System.out.println("Contato encontrado:");
-            System.out.println("Nome: " + nome);
+            System.out.println("Contato encontrado: " + nome);
             contatos.get(nome).exibirContato();
         } else {
             System.out.println("Contato não encontrado.");
@@ -52,7 +45,7 @@ public class GerenciamentoDeContatos {
     public void removerContato(String nome) {
         if (contatos.containsKey(nome)) {
             contatos.remove(nome);
-            System.out.println("Contato " + nome + " removido.");
+            System.out.println("Contato " + nome + " removido com sucesso!");
         } else {
             System.out.println("Contato " + nome + " não encontrado.");
         }
