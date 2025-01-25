@@ -5,34 +5,57 @@ import java.util.Map;
 public class GerenciamentoDeContatos {
     private Map<String, Contato> contatos;
 
-
-    // Construtor
     public GerenciamentoDeContatos() {
         contatos = new HashMap<>();
     }
 
-
-    // Adiciona um novo contato
     public void adicionarContato(String nome, String telefone, String email) {
-        // IMPLEMENTE ESTE METODO
+        if (!contatos.containsKey(nome)) {
+            Contato novoContato = new Contato();
+            novoContato.adicionarTelefone(telefone);
+            novoContato.adicionarEmail(email);
+            contatos.put(nome, novoContato);
+            System.out.println("Contato " + nome + " adicionado.");
+        } else {
+            System.out.println("Contato com o nome " + nome + " já existe. Adicionando telefone e email.");
+            Contato contatoExistente = contatos.get(nome);
+            contatoExistente.adicionarTelefone(telefone);
+            if (!contatoExistente.adicionarEmail(email)){
+                System.out.println("Email duplicado não adicionado");
+            }
+
+        }
     }
 
-
-    // Exibe todos os contatos
     public void exibirContatos() {
-        // IMPLEMENTE ESTE METODO
+        if (contatos.isEmpty()) {
+            System.out.println("Nenhum contato cadastrado.");
+            return;
+        }
+        for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
+            System.out.println("Nome: " + entry.getKey());
+            entry.getValue().exibirContato();
+            System.out.println();
+        }
     }
 
-
-    // Busca um contato pelo nome
     public void buscarContato(String nome) {
-        // IMPLEMENTE ESTE METODO
+        if (contatos.containsKey(nome)) {
+            System.out.println("Contato encontrado:");
+            System.out.println("Nome: " + nome);
+            contatos.get(nome).exibirContato();
+        } else {
+            System.out.println("Contato não encontrado.");
+        }
     }
 
-
-    // Remove um contato pelo nome
     public void removerContato(String nome) {
-        // IMPLEMENTE ESTE METODO
+        if (contatos.containsKey(nome)) {
+            contatos.remove(nome);
+            System.out.println("Contato " + nome + " removido.");
+        } else {
+            System.out.println("Contato " + nome + " não encontrado.");
+        }
     }
 
 
