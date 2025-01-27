@@ -46,12 +46,12 @@ public class Estoque {
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoCSV))) {
             String linha;
             while ((linha = br.readLine()) != null) {
-//                String[] data = linha.split(",");
-//                Produto produto = new Produto(Integer.parseInt(data[0]), data[1],
-//                        Integer.parseInt(data[2]), Double.parseDouble(data[3]));
-//                if (produto != null) {
-//                    produtos.add(produto);
-//                }
+                String[] data = linha.split(",");
+                Produto produto = new Produto(Integer.parseInt(data[0]), data[1],
+                        Integer.parseInt(data[2]), Double.parseDouble(data[3]));
+                if (produto != null) {
+                    produtos.add(produto);
+                }
             }
         } catch (IOException e) {
             // Se o arquivo não existir na primeira execução, ele será criado depois.
@@ -63,10 +63,10 @@ public class Estoque {
 
     private void salvarEstoque() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoCSV))) {
-//            for (Produto produto : produtos) {
-//                bw.write(produto.toCsv());
-//                bw.newLine();
-//            }
+            for (Produto produto : produtos) {
+                bw.write(produto.toCsv());
+                bw.newLine();
+            }
         } catch (IOException e) {
             System.err.println("Erro ao salvar estoque: " + e.getMessage());
         }
