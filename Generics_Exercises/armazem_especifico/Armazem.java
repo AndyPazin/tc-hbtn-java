@@ -1,5 +1,3 @@
-import task0.Armazenavel;
-
 import java.util.HashMap;
 import java.util.Map;
 
