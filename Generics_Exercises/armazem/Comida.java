@@ -38,6 +38,6 @@ public class Comida {
 
     @Override
     public String toString() {
-        return String.format("[%s] %f calorias R$ %f", nome, calorias, preco);
+        return String.format("[%s] %f R$ %f", nome, calorias, preco);
     }
 }
