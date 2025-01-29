@@ -1,4 +1,4 @@
-public class Post implements Comparable<Post>{
+public class Post implements Comparable {
     private Autor autor;
     private String titulo;
     private String corpo;
@@ -11,7 +11,6 @@ public class Post implements Comparable<Post>{
         this.categoria = categoria;
     }
 
-    // Getters para os atributos
     public Autor getAutor() {
         return autor;
     }
@@ -28,34 +27,14 @@ public class Post implements Comparable<Post>{
         return categoria;
     }
 
-    // Setters para os atributos (opcional, se precisar modificar os valores após a criação)
-    public void setAutor(Autor autor) {
-        this.autor = autor;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setCorpo(String corpo) {
-        this.corpo = corpo;
-    }
-
-    public void setCategoria(Categorias categoria) {
-        this.categoria = categoria;
-    }
     @Override
-    public String toString() {
-        return titulo;
+    public int compareTo(Object obj) {
+        Post post = (Post) obj;
+        return this.titulo.compareTo(post.titulo);
     }
 
     @Override
-    public int compareTo(Post outroPost ) {
-        int comparacaoTitulo = this.titulo.compareTo(outroPost.titulo);
-        if (comparacaoTitulo != 0) {
-            return comparacaoTitulo;
-        } else {
-            return this.autor.compareTo(outroPost.autor);
-        }
+    public String toString() {
+        return this.titulo;
     }
 }

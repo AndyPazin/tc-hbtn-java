@@ -1,4 +1,4 @@
-public class Autor implements Comparable<Autor> {
+public class Autor implements Comparable {
     private String nome;
     private String sobrenome;
 
@@ -23,13 +23,14 @@ public class Autor implements Comparable<Autor> {
         this.sobrenome = sobrenome;
     }
 
-    @Override
     public String toString() {
-        return nome + " " + sobrenome;
+        return String.format("%s %s", this.nome, this.sobrenome);
     }
 
     @Override
-    public int compareTo(Autor outroAutor) {
-        return this.nome.compareTo(outroAutor.nome);
+    public int compareTo(Object obj) {
+        Autor autor = (Autor) obj;
+        return this.toString().compareTo(autor.toString());
     }
+
 }
