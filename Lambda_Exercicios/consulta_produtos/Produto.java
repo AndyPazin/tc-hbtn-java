@@ -58,6 +58,6 @@ public class Produto {
     // Método toString()
     @Override
     public String toString() {
-        return nome + " " + preco + " " + peso + " " + quantidadeEmEstoque + " " + tipo;
+        return String.format("%s %f %f %d %s", nome, preco, peso, quantidadeEmEstoque, tipo);
     }
 }
